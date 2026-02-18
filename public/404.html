@@ -7,8 +7,10 @@
       // SPA fallback for GitHub Pages
       // Redirect /quiz-app/anything to /quiz-app/?p=/anything
       var l = window.location;
-      var repo = "/react-github-pages-starter"; //GitHub repo URL
-      var path = l.pathname.startsWith(repo) ? l.pathname.slice(repo.length) : l.pathname;
+      var repo = "/Browser-extensions-manager-ui"; //GitHub repo URL
+      var path = l.pathname.startsWith(repo)
+        ? l.pathname.slice(repo.length)
+        : l.pathname;
 
       l.replace(
         repo +
@@ -17,7 +19,7 @@
           "&q=" +
           encodeURIComponent(l.search) +
           "&h=" +
-          encodeURIComponent(l.hash)
+          encodeURIComponent(l.hash),
       );
     </script>
   </head>
