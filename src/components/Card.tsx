@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { type CardProps } from "../types/types";
 
 const Card = ({ logo, name, description, isActive, index }: CardProps) => {
   const base = import.meta.env.BASE_URL;
+  const [isActiveState, setIsActiveState] = useState(isActive);
   return (
     <div className="card">
       <div className="top-card">
@@ -14,8 +16,14 @@ const Card = ({ logo, name, description, isActive, index }: CardProps) => {
       <div className="bottom-card">
         <button className="btn">Remove</button>
         <div className="toggle-group">
-          <input type="radio" id="toggle" name="switch" checked />
-          <label htmlFor="toggle" className="toggle-label"></label>
+          <input
+            type="checkbox"
+            id={`toggle-${index}`}
+            name="switch"
+            checked={isActiveState}
+            onChange={() => setIsActiveState(!isActiveState)}
+          />
+          <label htmlFor={`toggle-${index}`} className="toggle-label"></label>
         </div>
       </div>
     </div>

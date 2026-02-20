@@ -202,7 +202,7 @@ body {
   display: inline-block;
 }
 
-.toggle-group input[type="radio"] {
+.toggle-group input[type="checkbox"] {
   display: none;
 }
 
@@ -229,11 +229,11 @@ body {
   transition: transform 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
-input[type="radio"]:checked + .toggle-label {
+input[type="checkbox"]:checked + .toggle-label {
   background: #c81e1e;
 }
 
-input[type="radio"]:checked + .toggle-label::after {
+input[type="checkbox"]:checked + .toggle-label::after {
   transform: translateX(15.5px);
 }
 @media (min-width: 768px) {
