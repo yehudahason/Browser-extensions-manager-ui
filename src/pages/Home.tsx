@@ -1,3 +1,5 @@
+import Card from "../components/Card";
+
 const Home = () => {
   const base = import.meta.env.BASE_URL;
 
@@ -29,7 +31,9 @@ const Home = () => {
         </ul>
       </section>
 
-      <div className="container"></div>
+      <div className="container">
+        <Card />
+      </div>
     </main>
   );
 };

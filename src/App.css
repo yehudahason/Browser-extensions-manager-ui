@@ -146,6 +146,96 @@ body {
   color: white;
   border: none;
 }
+
+.card {
+  width: 324px;
+  height: 200px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  border: 1px solid var(--neutral-200);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.top-card {
+  display: flex;
+  gap: 16px;
+}
+
+.top-card img {
+  width: 60px;
+  height: 60px;
+}
+.card-title {
+  font: var(--text-preset-2);
+  letter-spacing: var(--text-preset-2-letter-spacing);
+  color: var(--neutral-900);
+  margin-bottom: 12px;
+}
+.text p {
+  font: var(--text-preset-5);
+  letter-spacing: var(--text-preset-5-letter-spacing);
+  color: var(--neutral-600);
+}
+.bottom-card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btn {
+  padding: 8px 16px;
+  font: var(--text-preset-6);
+  letter-spacing: var(--text-preset-6-letter-spacing);
+  color: var(--neutral-900);
+  border: 1px solid var(--neutral-300);
+  background-color: white;
+  border-radius: 24px;
+  cursor: pointer;
+}
+.toggle-group {
+  display: inline-block;
+}
+
+.toggle-group input[type="radio"] {
+  display: none;
+}
+
+.toggle-label {
+  width: 36px;
+  height: 20px;
+  background: #d1d5db;
+  border-radius: 999px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.toggle-label::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 2px;
+  left: 2px;
+  background: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+input[type="radio"]:checked + .toggle-label {
+  background: #c81e1e;
+}
+
+input[type="radio"]:checked + .toggle-label::after {
+  transform: translateX(15.5px);
+}
 @media (min-width: 768px) {
   #root {
     padding: 24px 32px;
