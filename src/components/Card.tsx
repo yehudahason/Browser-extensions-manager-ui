@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { type CardProps } from "../types/types";
 
 const Card = ({

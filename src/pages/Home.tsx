@@ -3,10 +3,11 @@ import Card from "../components/Card";
 import { type CardsArray } from "../types/types";
 const Home = () => {
   const base = import.meta.env.BASE_URL;
-  const [allCards, setAllCards] = useState<CardType[]>([]);
+  const [allCards, setAllCards] = useState<CardsArray>([]);
   const [data, setData] = useState<CardsArray>([]);
   const [activeFilter, setActiveFilter] = useState("all");
-  const toggleCard = (index: number) => {
+  const toggleCard = (index: number | undefined) => {
+    if (index === undefined) return;
     setData((prevData) =>
       prevData.map((card, i) =>
         i === index ? { ...card, isActive: !card.isActive } : card,
