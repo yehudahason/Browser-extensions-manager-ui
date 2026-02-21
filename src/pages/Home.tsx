@@ -3,7 +3,9 @@ import Card from "../components/Card";
 import { type CardsArray } from "../types/types";
 const Home = () => {
   const base = import.meta.env.BASE_URL;
+  const [allCards, setAllCards] = useState<CardType[]>([]);
   const [data, setData] = useState<CardsArray>([]);
+  const [activeFilter, setActiveFilter] = useState("all");
   const toggleCard = (index: number) => {
     setData((prevData) =>
       prevData.map((card, i) =>
@@ -11,12 +13,26 @@ const Home = () => {
       ),
     );
   };
+  const filterCards = (filter: string) => {
+    setActiveFilter(filter);
+    switch (filter) {
+      case "active":
+        setData(allCards.filter((card) => card.isActive));
+        break;
+      case "inactive":
+        setData(allCards.filter((card) => !card.isActive));
+        break;
+      default:
+        setData(allCards);
+    }
+  };
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(`${base}/data.json`);
         const data = await response.json();
         setData(data);
+        setAllCards(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -40,13 +56,28 @@ const Home = () => {
 
         <ul className="filter-list">
           <li>
-            <button className="filter-btn active">All</button>
+            <button
+              className={`filter-btn ${activeFilter === "all" ? "active" : ""}`}
+              onClick={() => filterCards("all")}
+            >
+              All
+            </button>
           </li>
           <li>
-            <button className="filter-btn">Active</button>
+            <button
+              className={`filter-btn ${activeFilter === "active" ? "active" : ""}`}
+              onClick={() => filterCards("active")}
+            >
+              Active
+            </button>
           </li>
           <li>
-            <button className="filter-btn">Inactive</button>
+            <button
+              className={`filter-btn ${activeFilter === "inactive" ? "active" : ""}`}
+              onClick={() => filterCards("inactive")}
+            >
+              Inactive
+            </button>
           </li>
         </ul>
       </section>
