@@ -4,6 +4,13 @@ import { type CardsArray } from "../types/types";
 const Home = () => {
   const base = import.meta.env.BASE_URL;
   const [data, setData] = useState<CardsArray>([]);
+  const toggleCard = (index: number) => {
+    setData((prevData) =>
+      prevData.map((card, i) =>
+        i === index ? { ...card, isActive: !card.isActive } : card,
+      ),
+    );
+  };
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -52,7 +59,8 @@ const Home = () => {
             name={card.name}
             description={card.description}
             isActive={card.isActive}
-            index={card.index}
+            index={index}
+            onToggle={toggleCard}
           />
         ))}
       </div>

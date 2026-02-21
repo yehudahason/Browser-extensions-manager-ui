@@ -242,6 +242,12 @@ input[type="checkbox"]:checked + .toggle-label {
 input[type="checkbox"]:checked + .toggle-label::after {
   transform: translateX(15.5px);
 }
+
+@media (min-width: 568px) {
+  .secondary-nav {
+    flex-direction: row;
+  }
+}
 @media (min-width: 768px) {
   #root {
     padding: 24px 32px;
