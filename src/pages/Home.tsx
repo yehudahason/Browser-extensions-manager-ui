@@ -15,7 +15,9 @@ const Home = () => {
       ),
     );
   };
-
+  const removeCard = (name: string | undefined) => {
+    setAllCards((prev) => prev.filter((card) => card.name !== name));
+  };
   // 🔥 Derived filtered data (NO duplicate state)
   const filteredCards = useMemo(() => {
     switch (activeFilter) {
@@ -95,6 +97,7 @@ const Home = () => {
             description={card.description}
             isActive={card.isActive}
             onToggle={toggleCard}
+            onRemove={removeCard}
           />
         ))}
       </div>

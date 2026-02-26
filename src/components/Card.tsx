@@ -1,6 +1,13 @@
 import { type CardProps } from "../types/types";
 
-const Card = ({ logo, name, description, isActive, onToggle }: CardProps) => {
+const Card = ({
+  logo,
+  name,
+  description,
+  isActive,
+  onToggle,
+  onRemove,
+}: CardProps) => {
   const base = import.meta.env.BASE_URL;
 
   return (
@@ -14,7 +21,9 @@ const Card = ({ logo, name, description, isActive, onToggle }: CardProps) => {
       </div>
 
       <div className="bottom-card">
-        <button className="btn">Remove</button>
+        <button className="btn" onClick={() => onRemove(name)}>
+          Remove
+        </button>
 
         <div className="toggle-group">
           <input
