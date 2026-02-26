@@ -7,6 +7,9 @@ const Home = () => {
   const [allCards, setAllCards] = useState<CardsArray>([]);
   const [activeFilter, setActiveFilter] = useState("all");
 
+  const themeToggle = () => {
+    document.body.classList.toggle("dark");
+  };
   // 🔥 Toggle by name (stable identity)
   const toggleCard = (name: string | undefined) => {
     setAllCards((prev) =>
@@ -49,11 +52,33 @@ const Home = () => {
     <main className="main">
       <header className="top-nav">
         <div className="brand">
-          <img src={`${base}assets/images/logo.svg`} alt="Extensions logo" />
+          <img
+            className="logo-light"
+            src={`${base}assets/images/logo.svg`}
+            alt="Extensions logo"
+          />
+          <img
+            className="logo-dark"
+            src={`${base}assets/images/logo-white.svg`}
+            alt="Extensions logo"
+          />
         </div>
 
-        <button className="theme-toggle" aria-label="Toggle theme">
-          <img src={`${base}assets/images/icon-moon.svg`} alt="" />
+        <button
+          className="theme-toggle"
+          aria-label="Toggle theme"
+          onClick={themeToggle}
+        >
+          <img
+            src={`${base}assets/images/icon-moon.svg`}
+            alt=""
+            className="moon-icon"
+          />
+          <img
+            src={`${base}assets/images/icon-sun.svg`}
+            alt=""
+            className="sun-icon"
+          />
         </button>
       </header>
 

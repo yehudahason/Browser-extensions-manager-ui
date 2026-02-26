@@ -243,6 +243,34 @@ input[type="checkbox"]:checked + .toggle-label::after {
   transform: translateX(15.5px);
 }
 
+body.dark {
+  background: var(--gradient-dark);
+}
+body.dark .top-nav,
+body.dark .filter-list button,
+body.dark .card {
+  background-color: var(--neutral-800);
+  border: 1px solid var(--neutral-700);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+}
+body.dark .filter-list button {
+  color: white;
+}
+body.dark .top-nav {
+  color: white;
+}
+body .logo-dark {
+  display: none;
+}
+body.dark .logo-light {
+  display: none;
+}
+body.dark .logo-dark {
+  display: block;
+}
+body.dark .container {
+  /* background-color: var(--neutral-900); */
+}
 @media (min-width: 568px) {
   .secondary-nav {
     flex-direction: row;
