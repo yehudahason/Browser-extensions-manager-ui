@@ -1,48 +1,45 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "../components/Card";
 import { type CardsArray } from "../types/types";
 const Home = () => {
   const base = import.meta.env.BASE_URL;
-
   const [allCards, setAllCards] = useState<CardsArray>([]);
+  const [data, setData] = useState<CardsArray>([]);
   const [activeFilter, setActiveFilter] = useState("all");
-
-  // 🔥 Toggle by name (stable identity)
-  const toggleCard = (name: string | undefined) => {
-    setAllCards((prev) =>
-      prev.map((card) =>
-        card.name === name ? { ...card, isActive: !card.isActive } : card,
+  const toggleCard = (index: number | undefined) => {
+    if (index === undefined) return;
+    setData((prevData) =>
+      prevData.map((card, i) =>
+        i === index ? { ...card, isActive: !card.isActive } : card,
       ),
     );
   };
-
-  // 🔥 Derived filtered data (NO duplicate state)
-  const filteredCards = useMemo(() => {
-    switch (activeFilter) {
+  const filterCards = (filter: string) => {
+    setActiveFilter(filter);
+    switch (filter) {
       case "active":
-        return allCards.filter((card) => card.isActive);
+        setData(allCards.filter((card) => card.isActive));
+        break;
       case "inactive":
-        return allCards.filter((card) => !card.isActive);
+        setData(allCards.filter((card) => !card.isActive));
+        break;
       default:
-        return allCards;
+        setData(allCards);
     }
-  }, [allCards, activeFilter]);
-
-  // 🔥 Fetch once
+  };
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(`${base}/data.json`);
         const data = await response.json();
+        setData(data);
         setAllCards(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-
     fetchData();
-  }, [base]);
-
+  }, []);
   return (
     <main className="main">
       <header className="top-nav">
@@ -62,7 +59,7 @@ const Home = () => {
           <li>
             <button
               className={`filter-btn ${activeFilter === "all" ? "active" : ""}`}
-              onClick={() => setActiveFilter("all")}
+              onClick={() => filterCards("all")}
             >
               All
             </button>
@@ -70,7 +67,7 @@ const Home = () => {
           <li>
             <button
               className={`filter-btn ${activeFilter === "active" ? "active" : ""}`}
-              onClick={() => setActiveFilter("active")}
+              onClick={() => filterCards("active")}
             >
               Active
             </button>
@@ -78,7 +75,7 @@ const Home = () => {
           <li>
             <button
               className={`filter-btn ${activeFilter === "inactive" ? "active" : ""}`}
-              onClick={() => setActiveFilter("inactive")}
+              onClick={() => filterCards("inactive")}
             >
               Inactive
             </button>
@@ -87,13 +84,14 @@ const Home = () => {
       </section>
 
       <div className="container">
-        {filteredCards.map((card) => (
+        {data.map((card, index) => (
           <Card
-            key={card.name}
+            key={index}
             logo={card.logo}
             name={card.name}
             description={card.description}
             isActive={card.isActive}
+            index={index}
             onToggle={toggleCard}
           />
         ))}

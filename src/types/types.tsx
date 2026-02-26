@@ -10,6 +10,5 @@ export type CardProps = {
   name: string | undefined;
   description: string | undefined;
   isActive: boolean | undefined;
-  index: number | undefined;
-  onToggle: (index: number | undefined) => void;
+  onToggle: (name: string | undefined) => void;
 };
