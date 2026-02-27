@@ -292,7 +292,7 @@ body.dark .btn {
 .toggle-label {
   width: 36px;
   height: 20px;
-  background: #d1d5db;
+  background: var(--neutral-600);
   border-radius: 999px;
   display: inline-block;
   position: relative;
