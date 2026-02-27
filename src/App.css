@@ -94,16 +94,30 @@ body {
 .theme-toggle {
   background-color: var(--neutral-100);
   border: none;
-  padding: 12px 15px;
+  padding: 5px;
   border-radius: 16px;
   height: 50px;
   width: 50px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 body.dark .theme-toggle {
   background-color: var(--neutral-700);
 }
+
+.theme-toggle:focus {
+  border: 2px solid white;
+  outline: 2px solid var(--red-400);
+}
+
+body.dark .theme-toggle:focus {
+  border: 2px solid var(--neutral-800);
+  outline: 2px solid var(--red-400);
+}
+
 .secondary-nav {
   width: 100%;
   display: flex;
