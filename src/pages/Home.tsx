@@ -83,7 +83,7 @@ const Home = () => {
       </header>
 
       <section className="secondary-nav">
-        <span className="section-title">Extension List</span>
+        <span className="section-title">Extensions List</span>
 
         <ul className="filter-list">
           <li>
