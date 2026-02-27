@@ -255,6 +255,9 @@ body.dark .text p {
   cursor: pointer;
   background-color: var(--red-400);
 }
+body.dark .btn:hover {
+  background-color: var(--red-400);
+}
 .btn:focus {
   border: 2px solid var(--neutral-300);
   outline: 2px solid var(--red-400);
