@@ -16,4 +16,4 @@ This is a solution to the [Browser extensions manager UI challenge on Frontend M
 
 ### Author
 
-- FontenMentor [Yehuda Hason](https://www.frontendmentor.io/profile/yehudahason)
+- Frontend Mentor - [Yehuda Hason](https://www.frontendmentor.io/profile/yehudahason).
