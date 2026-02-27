@@ -285,8 +285,8 @@ body.dark .btn {
 }
 
 .toggle-group input[type="checkbox"]:focus + .toggle-label {
-  outline: 2px solid var(--neutral-800);
-  outline-offset: 1px;
+  outline: 2px solid var(--red-400);
+  outline-offset: 2px;
 }
 .toggle-label {
   width: 36px;
