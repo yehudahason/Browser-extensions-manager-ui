@@ -109,8 +109,8 @@ body.dark .theme-toggle {
 }
 
 .theme-toggle:focus {
-  border: 2px solid white;
-  outline: 2px solid var(--red-400);
+  border: 3px solid white;
+  outline: 3px solid var(--red-400);
 }
 
 body.dark .theme-toggle:focus {
@@ -158,8 +158,7 @@ ul {
 }
 .filter-list button {
   background-color: white;
-  border: 1px solid var(--neutral-200);
-  /* box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1); */
+  border: var(--neutral-300);
   padding: 8px 16px;
   border-radius: 24px;
   height: 46px;
@@ -172,17 +171,18 @@ ul {
   background-color: var(--red-500);
   color: white;
 }
+
+body.dark .filter-list button {
+  color: white;
+}
 .filter-list button:focus {
-  border: 2px solid var(--neutral-200);
+  border: 2px solid var(--neutral-100);
   outline: 2px solid var(--red-400);
 }
 
 body.dark .filter-list button:focus {
   border: 2px solid var(--neutral-800);
   outline: 2px solid var(--red-400);
-}
-body.dark .filter-list button {
-  color: white;
 }
 
 body.dark .filter-list button.active {
@@ -243,10 +243,25 @@ body.dark .text p {
   font: var(--text-preset-6);
   letter-spacing: var(--text-preset-6-letter-spacing);
   color: var(--neutral-900);
-  border: 1px solid var(--neutral-300);
   background-color: white;
   border-radius: 24px;
   cursor: pointer;
+  border: 1px solid var(--neutral-300);
+}
+
+.btn:focus {
+  border: 2px solid var(--neutral-300);
+  outline: 2px solid var(--red-400);
+}
+
+body.dark .btn:focus {
+  border: 2px solid var(--neutral-800);
+  outline: 2px solid var(--red-400);
+}
+body.dark .btn {
+  background-color: var(--neutral-700);
+  color: white;
+  border: 1px solid var(--neutral-600);
 }
 .toggle-group {
   display: inline-block;
@@ -291,15 +306,16 @@ body.dark {
   background: var(--gradient-dark);
 }
 body.dark .top-nav,
-body.dark .filter-list button,
 body.dark .card {
   background-color: var(--neutral-800);
   border: 1px solid var(--neutral-700);
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
 }
 body.dark .filter-list button {
+  background-color: var(--neutral-800);
   color: white;
 }
+
 body.dark .top-nav {
   color: white;
 }
@@ -326,9 +342,6 @@ body .sun-icon {
   display: none;
 }
 
-body.dark .container {
-  /* background-color: var(--neutral-900); */
-}
 @media (min-width: 568px) {
   .secondary-nav {
     flex-direction: row;
