@@ -246,7 +246,7 @@ body.dark .text p {
   letter-spacing: var(--text-preset-6-letter-spacing);
   color: var(--neutral-900);
   background-color: white;
-  border-radius: 24px;
+  border-radius: 22px;
   cursor: pointer;
   border: 1px solid var(--neutral-300);
 }
@@ -278,9 +278,16 @@ body.dark .btn {
 }
 
 .toggle-group input[type="checkbox"] {
-  display: none;
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
 }
 
+.toggle-group input[type="checkbox"]:focus + .toggle-label {
+  outline: 2px solid var(--neutral-800);
+  outline-offset: 1px;
+}
 .toggle-label {
   width: 36px;
   height: 20px;
