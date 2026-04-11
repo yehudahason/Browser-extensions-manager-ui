@@ -8,7 +8,7 @@ This is a solution to the [Browser extensions manager UI challenge on Frontend M
 
 ### Links
 
-- Live Site: [Github Pages](https://yehudahason.github.io/Browser-extensions-manager-ui/)
+- My solution at : [Github Pages](https://yehudahason.github.io/Browser-extensions-manager-ui/)
 
 ### Built with
 
