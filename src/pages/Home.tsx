@@ -83,9 +83,9 @@ const Home = () => {
       </header>
 
       <section className="secondary-nav">
-        <span className="section-title">Extensions List</span>
+        <h1 className="section-title">Extensions List</h1>
 
-        <ul className="filter-list">
+        <ul className="filter-list" aria-label="filter list">
           <li>
             <button
               className={`filter-btn ${activeFilter === "all" ? "active" : ""}`}

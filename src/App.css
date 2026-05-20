@@ -357,6 +357,16 @@ body .sun-icon {
   display: none;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
 @media (min-width: 568px) {
   .secondary-nav {
     flex-direction: row;

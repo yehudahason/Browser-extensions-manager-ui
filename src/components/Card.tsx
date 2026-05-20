@@ -10,32 +10,45 @@ const Card = ({
 }: CardProps) => {
   const base = import.meta.env.BASE_URL;
 
+  const uniqueId = name?.replace(/\s+/g, "-").toLowerCase();
+
   return (
-    <div className="card">
+    <article className="card" aria-labelledby={`title-${uniqueId}`}>
       <div className="top-card">
-        <img src={base + logo} alt={`${name} icon`} />
+        <img src={base + logo} alt="" role="presentation" />
+
         <div className="text">
-          <h3 className="card-title">{name}</h3>
+          <h3 id={`title-${uniqueId}`} className="card-title">
+            {name}
+          </h3>
           <p className="card-description">{description}</p>
         </div>
       </div>
 
       <div className="bottom-card">
-        <button className="btn" onClick={() => onRemove(name)}>
+        <button
+          className="btn"
+          onClick={() => onRemove(name)}
+          aria-label={`Remove ${name}`}
+        >
           Remove
         </button>
 
         <div className="toggle-group">
           <input
             type="checkbox"
-            id={`toggle-${name}`}
+            id={`toggle-${uniqueId}`}
+            className="sr-only" // Hide visually, keep for screen readers
             checked={isActive}
             onChange={() => onToggle(name)}
           />
-          <label htmlFor={`toggle-${name}`} className="toggle-label"></label>
+          {/* 3. Text inside the label for screen readers */}
+          <label htmlFor={`toggle-${uniqueId}`} className="toggle-label">
+            <span className="sr-only">Activate {name}</span>
+          </label>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 
